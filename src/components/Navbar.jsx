@@ -13,7 +13,7 @@ const Navbar = () => {
         sx={{
           flexGrow: 1,
           display: "flex",
-          padding: "10px 50px",
+          padding: "10px 80px",
           background: "white",
         }}
       >
@@ -36,7 +36,7 @@ const Navbar = () => {
               alignItems: 'center'
             }}
           >
-            <Typography variant={"h3"} sx={{ color: "#3563E9" }}>
+            <Typography variant={"h4"} sx={{ color: "#3563E9" }}>
               RentCar
             </Typography>
             <Box
