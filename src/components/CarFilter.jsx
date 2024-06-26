@@ -114,7 +114,7 @@ const CarFilter = () => {
           <Box sx={{ width: 450 }}>
             <Slider
               marks={marks}
-              step={1}
+              step={50}
               value={val}
               valueLabelDisplay="auto"
               min={MIN}
