@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 import Card from './Card'
-import carData from '../data/carData'
+import { carData } from '../data/carData'
 
 const AllCars = () => {
 

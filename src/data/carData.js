@@ -13,7 +13,7 @@ import mers from '../assets/cars/Mers-W221.png'
 import chery from '../assets/cars/CHERY-TIGGO-7.png'
 
 
-const carData = [
+export const carData = [
   {
     id: 1,
     carImage: malibu,
@@ -264,7 +264,3 @@ const carData = [
     carStatus: "Eski",
   },
 ];
-
-export default carData
-
-console.log(carData);

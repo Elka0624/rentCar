@@ -8,21 +8,22 @@ import FilterCarsProduct from '../components/FilterCarsProduct'
 
 const HomePage = () => {
 
-  const [carFilterState, setCarFilterState] = useState([{
-    year: '',
-    color: '',
-    model: '',
-    price: 0
-  }])
+  const [carFilterState, setCarFilterState] = useState({
+    carYear: '',
+    carModel: '',
+    carColor: '',
+  })
 
-  console.log(carFilterState, 'elka')
+  const hasFilter = Object.values(carFilterState).filter((filter) => !!filter);
 
   return (
     <div>
       <Navbar />
       <CaruaselCard />
       <CarFilter carFilterState={carFilterState} setCarFilterState={setCarFilterState} />
-      {carFilterState ? (<FilterCarsProduct carFilterState={carFilterState} />) : (<><PopularCar /><AllCars /></>)}
+      {hasFilter.length > 0 
+        ? <FilterCarsProduct carFilterState={carFilterState} />
+        : (<><PopularCar /><AllCars /></>)}
       
     </div>
   )

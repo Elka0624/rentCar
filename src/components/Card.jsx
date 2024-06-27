@@ -5,7 +5,7 @@ import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import BuildIcon from "@mui/icons-material/Build";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import malibu from "../assets/cars/malibu.png";
-import carData from "../data/carData";
+import { carData } from "../data/carData";
 
 const Card = ({car}) => {
 

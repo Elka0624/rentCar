@@ -31,10 +31,12 @@ const CarFilter = ({carFilterState, setCarFilterState}) => {
     setVal(newValue);
   };
 
-  const handleCarYear = (e) =>{
-    setCarFilterState(e)
-    console.log(e);
-  }
+const setFilter = (key, value) => {
+  setCarFilterState({
+    ...carFilterState,
+    [key]: value 
+  })
+}
 
   return (
     <Box sx={{ flexGrow: 1, padding: "0px 80px" }}>
@@ -61,9 +63,10 @@ const CarFilter = ({carFilterState, setCarFilterState}) => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Yili"
-                value={carFilterState}
-                onChange={(e)=>{handleCarYear(e.target.value)}}
+                value={carFilterState['carYear']}
+                onChange={(e)=> setFilter('carYear', e.target.value)}
               >
+                <MenuItem value=''>X</MenuItem>
                 <MenuItem value={2015}>2015</MenuItem>
                 <MenuItem value={2016}>2016</MenuItem>
                 <MenuItem value={2017}>2017</MenuItem>
@@ -83,14 +86,17 @@ const CarFilter = ({carFilterState, setCarFilterState}) => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Rangi"
+                value={carFilterState['carColor']}
+                onChange={(e)=>{setFilter('carColor', e.target.value)}}
               >
-                <MenuItem value={"qora"}>Qora</MenuItem>
-                <MenuItem value={"oq"}>Oq</MenuItem>
-                <MenuItem value={"seriy"}>Seriy</MenuItem>
-                <MenuItem value={"kok"}>Ko'k</MenuItem>
-                <MenuItem value={"yashil"}>Yashil</MenuItem>
-                <MenuItem value={"qizil"}>Qizil</MenuItem>
-                <MenuItem value={"sariq"}>Sariq</MenuItem>
+                <MenuItem value=''>X</MenuItem>
+                <MenuItem value={"Qora"}>Qora</MenuItem>
+                <MenuItem value={"Oq"}>Oq</MenuItem>
+                <MenuItem value={"Seriy"}>Seriy</MenuItem>
+                <MenuItem value={"Ko'k"}>Ko'k</MenuItem>
+                <MenuItem value={"Yashil"}>Yashil</MenuItem>
+                <MenuItem value={"Qizil"}>Qizil</MenuItem>
+                <MenuItem value={"Sariq"}>Sariq</MenuItem>
               </Select>
             </FormControl>
           </Box>
@@ -101,10 +107,13 @@ const CarFilter = ({carFilterState, setCarFilterState}) => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Model"
+                value={carFilterState['carModel']}
+                onChange={(e)=>{setFilter('carModel', e.target.value)}}
               >
-                <MenuItem value={"atmosfer"}>Atmosfer</MenuItem>
-                <MenuItem value={"gibrid"}>Gipred</MenuItem>
-                <MenuItem value={"elektro"}>Elektro</MenuItem>
+                <MenuItem value=''>X</MenuItem>
+                <MenuItem value={"Atmosfer"}>Atmosfer</MenuItem>
+                <MenuItem value={"Gibrid"}>Gipred</MenuItem>
+                <MenuItem value={"Elektro"}>Elektro</MenuItem>
               </Select>
             </FormControl>
           </Box>
