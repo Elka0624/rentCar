@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { useState } from "react";
 
 const MAX = 3000;
 const MIN = 100;
@@ -23,11 +24,17 @@ const marks = [
   },
 ];
 
-const CarFilter = () => {
+const CarFilter = ({carFilterState, setCarFilterState}) => {
   const [val, setVal] = React.useState(MIN);
+
   const handleChange = (_, newValue) => {
     setVal(newValue);
   };
+
+  const handleCarYear = (e) =>{
+    setCarFilterState(e)
+    console.log(e);
+  }
 
   return (
     <Box sx={{ flexGrow: 1, padding: "0px 80px" }}>
@@ -54,6 +61,8 @@ const CarFilter = () => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Yili"
+                value={carFilterState}
+                onChange={(e)=>{handleCarYear(e.target.value)}}
               >
                 <MenuItem value={2015}>2015</MenuItem>
                 <MenuItem value={2016}>2016</MenuItem>

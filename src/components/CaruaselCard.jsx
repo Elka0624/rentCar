@@ -3,7 +3,7 @@ import React from "react";
 import malibu from "../assets/cars/malibu.png";
 import circleIcon from "../assets/circleIcon.svg";
 import rightIcon from "../assets/rigthIcon.svg";
-import monza from '../assets/cars/Monza.png'
+import li from '../assets/cars/LI-XIANG-MAX.png'
 
 const CaruaselCard = () => {
   return (
@@ -115,7 +115,7 @@ const CaruaselCard = () => {
           </Button>
           <Box
             component={"img"}
-            src={malibu}
+            src={li}
             sx={{
               width: "500px",
               position: "absolute",
