@@ -24,7 +24,7 @@ const marks = [
   },
 ];
 
-const CarFilter = ({carFilterState, setCarFilterState}) => {
+const CarFilter = ({carFilterState, setCarFilterState, checked}) => {
   const [val, setVal] = React.useState(MIN);
 
   const handleChange = (_, newValue) => {
@@ -49,22 +49,32 @@ const setFilter = (key, value) => {
           item
           xs={5.5}
           sx={{
-            background: "white",
+            background: `${!checked ? 'white' : '#3f51b5'}`,
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             padding: "12px 20px",
+            borderRadius: '20px'
           }}
         >
           <Box sx={{ width: "150px" }}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Yili</InputLabel>
+              <InputLabel id="demo-simple-select-label"  sx={{ color: checked ? 'white' : '' }}>Yili</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Yili"
                 value={carFilterState['carYear']}
                 onChange={(e)=> setFilter('carYear', e.target.value)}
+                sx={{
+                  color: `${!checked ? '' : 'white'}`,
+                  border: `${!checked ? '' : '1px solid white'}`
+                }}
+                inputProps={{
+                  style: {
+                    color: checked ? 'red' : 'black',
+                  },
+                }}
               >
                 <MenuItem value=''>X</MenuItem>
                 <MenuItem value={2015}>2015</MenuItem>
@@ -81,13 +91,22 @@ const setFilter = (key, value) => {
           </Box>
           <Box sx={{ width: "150px" }}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Rangi</InputLabel>
+              <InputLabel id="demo-simple-select-label" sx={{ color: checked ? 'white' : '' }}>Rangi</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Rangi"
                 value={carFilterState['carColor']}
                 onChange={(e)=>{setFilter('carColor', e.target.value)}}
+                sx={{
+                  color: `${!checked ? '' : 'white'}`,
+                  border: `${!checked ? '' : '1px solid white'}`
+                }}
+                inputProps={{
+                  style: {
+                    color: checked ? 'red' : 'black',
+                  },
+                }}
               >
                 <MenuItem value=''>X</MenuItem>
                 <MenuItem value={"Qora"}>Qora</MenuItem>
@@ -102,13 +121,22 @@ const setFilter = (key, value) => {
           </Box>
           <Box sx={{ width: "150px" }}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Model</InputLabel>
+              <InputLabel id="demo-simple-select-label" sx={{ color: checked ? 'white' : '' }}>Model</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Model"
                 value={carFilterState['carModel']}
                 onChange={(e)=>{setFilter('carModel', e.target.value)}}
+                sx={{
+                  color: `${!checked ? '' : 'white'}`,
+                  border: `${!checked ? '' : '1px solid white'}`
+                }}
+                inputProps={{
+                  style: {
+                    color: checked ? 'red' : 'black',
+                  },
+                }}
               >
                 <MenuItem value=''>X</MenuItem>
                 <MenuItem value={"Atmosfer"}>Atmosfer</MenuItem>
@@ -122,11 +150,12 @@ const setFilter = (key, value) => {
           item
           xs={5.5}
           sx={{
-            background: "white",
+            background:  `${!checked ? 'white' : '#3f51b5'}`,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             padding: "12px 20px",
+            borderRadius: '20px'
           }}
         >
           <Box sx={{ width: 450 }}>
@@ -138,19 +167,27 @@ const setFilter = (key, value) => {
               min={MIN}
               max={MAX}
               onChange={handleChange}
+              sx={{
+                color: `${!checked ? '' : 'white'}`,
+              }}
+              inputProps={{
+                style: {
+                  color: checked ? 'red' : 'black',
+                },
+              }}
             />
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Typography
                 variant="body2"
                 onClick={() => setVal(MIN)}
-                sx={{ cursor: "pointer" }}
+                sx={{ cursor: "pointer", color: checked ? 'white' : 'black', }}
               >
                 {MIN} min $
               </Typography>
               <Typography
                 variant="body2"
                 onClick={() => setVal(MAX)}
-                sx={{ cursor: "pointer" }}
+                sx={{ cursor: "pointer", color: checked ? 'white' : 'black', }}
               >
                 {MAX} max $
               </Typography>

@@ -6,16 +6,23 @@ import BuildIcon from "@mui/icons-material/Build";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import malibu from "../assets/cars/malibu.png";
 import { carData } from "../data/carData";
+import {Link} from 'react-router-dom'
 
-const Card = ({car}) => {
+const Card = ({ car, checked }) => {
+
+  const handleClickScroll = () =>{
+    console.log('llll');
+    preventDefault()
+    window.scrollY('0')
+  }
 
   return (
     <div>
-        <Box
+      <Box
           sx={{
             cursor: "pointer",
             width: "300px",
-            background: "white",
+            background: `${!checked ? 'white' : '#3f51b5'}`,
             padding: "20px",
             margin: "20px 0px",
             borderRadius: "20px",
@@ -32,18 +39,22 @@ const Card = ({car}) => {
               alignItems: "center",
             }}
           >
-            <Typography sx={{ color: "black", fontSize: "25px" }}>
+            <Typography sx={{ color: `${!checked ? 'black' : 'white'}`, fontSize: "25px" }}>
               {car.carName}
-              <Typography sx={{ color: "#90A3BF", fontSize: "16px" }}>
-              {car.carModel}
+              <Typography sx={{ color: `${!checked ? '#90A3BF' : 'white'}`, fontSize: "16px" }}>
+                {car.carModel}
               </Typography>
             </Typography>
             <FavoriteBorderIcon
-              sx={{ color: "#90A3BF", fontSize: "32px", cursor: "pointer" }}
+              sx={{ color: `${!checked ? '#90A3BF' : 'white'}`, fontSize: "32px", cursor: "pointer" }}
             />
           </Box>
-          <Box sx={{ width: "100%", background: "white" }}>
-            <Box component={"img"} src={car.carImage} sx={{ width: "100%" }}></Box>
+          <Box sx={{ width: "100%", background: `${!checked ? 'white' : '#3f51b5'}` }}>
+            <Box
+              component={"img"}
+              src={car.carImage}
+              sx={{ width: "100%" }}
+            ></Box>
           </Box>
           <Box
             sx={{
@@ -54,11 +65,11 @@ const Card = ({car}) => {
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <LocalGasStationIcon
-                sx={{ color: "#90A3BF", fontSize: "35px", cursor: "pointer" }}
+                sx={{ color: `${!checked ? '#90A3BF' : 'white'}`, fontSize: "35px", cursor: "pointer" }}
               />
               <Typography
                 sx={{
-                  color: "#90A3BF",
+                  color: `${!checked ? '#90A3BF' : 'white'}`,
                   fontSize: "16px",
                   marginLeft: "5px",
                   marginTop: "5px",
@@ -69,11 +80,11 @@ const Card = ({car}) => {
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <BuildIcon
-                sx={{ color: "#90A3BF", fontSize: "30px", cursor: "pointer" }}
+                sx={{ color: `${!checked ? '#90A3BF' : 'white'}`, fontSize: "30px", cursor: "pointer" }}
               />
               <Typography
                 sx={{
-                  color: "#90A3BF",
+                  color: `${!checked ? '#90A3BF' : 'white'}`,
                   fontSize: "16px",
                   marginLeft: "5px",
                   marginTop: "5px",
@@ -84,11 +95,11 @@ const Card = ({car}) => {
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <PeopleAltIcon
-                sx={{ color: "#90A3BF", fontSize: "35px", cursor: "pointer" }}
+                sx={{ color: `${!checked ? '#90A3BF' : 'white'}`, fontSize: "35px", cursor: "pointer" }}
               />
               <Typography
                 sx={{
-                  color: "#90A3BF",
+                  color: `${!checked ? '#90A3BF' : 'white'}`,
                   fontSize: "16px",
                   marginLeft: "5px",
                   marginTop: "5px",
@@ -107,34 +118,36 @@ const Card = ({car}) => {
           >
             <Typography
               sx={{
-                color: "black",
+                color: `${!checked ? 'black' : 'white'}`,
                 fontSize: "25px",
                 display: "flex",
                 alignItems: "center",
               }}
             >
               {car.carPrice}$/
-              <Typography sx={{ color: "#90A3BF", marginLeft: "5px" }}>
+              <Typography sx={{ color: `${!checked ? '#90A3BF' : 'white'}`, marginLeft: "5px" }}>
                 day
               </Typography>
             </Typography>
+            <Link style={{textDecoration: 'none'}} to={`/car/${car.id}`} onClick={()=>handleClickScroll()}>
             <Button
               sx={{
                 width: "150px",
-                background: "#3563E9",
-                color: "white",
+                background: `${!checked ? '#3563E9' : 'white'}`,
+                color: `${!checked ? 'white' : '#3563E9'}`,
                 border: "1px solid #3563E9",
                 "&:hover": {
-                  color: "#3563E9",
-                  border: "1px solid #3563E9",
+                  color: `${!checked ? '#3563E9' : 'white'}`,
+                  border:`${!checked ? '1px solid #3563E9' : '1px solid white'}`,
                 },
               }}
             >
               Rental Now
             </Button>
+            </Link>
           </Box>
         </Box>
-    </div>
+      </div>
   );
 };
 

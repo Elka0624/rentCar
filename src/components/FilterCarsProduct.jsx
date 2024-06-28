@@ -8,7 +8,6 @@ const FilterCarsProduct = ({ carFilterState }) => {
     key,
     value: carFilterState[key],
   })).filter((fil) => fil.value)
-  console.log(filters)
   const filteredCars = carData.filter((car) => {
     const res = filters.map((filter) => {
       if (car[filter.key] === filter.value) {

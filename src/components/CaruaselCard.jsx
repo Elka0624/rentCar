@@ -11,7 +11,7 @@ const CaruaselCard = () => {
       sx={{
         flexGrow: 1,
         padding: "0px 80px",
-        marginTop: "50px",
+        marginTop: "120px",
         marginBottom: "140px",
       }}
     >
